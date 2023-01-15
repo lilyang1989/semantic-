@@ -17,6 +17,7 @@ def label():
             data.loc[i, "label"] = "1"
     data.drop("Publication Date", axis=1, inplace=True)
     data.to_excel("./final_result.xlsx")
+    data.index = range(len(data))
     return data
 
 

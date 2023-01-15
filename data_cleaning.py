@@ -24,6 +24,8 @@ def main():
     # add CP and label to columns
     result = result.reindex(columns=result.columns.tolist() + ["CP", "label"])
     result[['CP', 'label']] = result[['CP', 'label']].astype('object')
+    # use as a referring
+    refer = result.copy()
     #
     F_citations = data["Forward Citations"]
     B_citations = data["Backward Citations"]
@@ -66,6 +68,7 @@ def main():
                 result.at[rows_index, 'CP'] = pd.array([])
             result.at[rows_index, 'CP'] = list(set(list(result.loc[rows_index, "CP"]) + [after[j]]))
     CP_rows = result["CP"]
+    # drop the nan CP
     for i in range(len(CP_rows)):
         tmp = pd.isna(CP_rows[i])
         if type(tmp) == np.ndarray:
@@ -73,6 +76,10 @@ def main():
                 result.drop(i, axis=0, inplace=True)
         elif tmp:
             result.drop(i, axis=0, inplace=True)
+    # reindex
+    result.index = range(len(result))
+    result = result_fix(result, refer)
+    result.to_excel("./mid_result.xlsx")
     return result
 
 
@@ -101,6 +108,32 @@ def cleaner(raw: list, data_0: pandas.Series) -> list:
             res.append(i)
     res = list(set(res))
     return res
+
+
+def result_fix(raw: pandas.DataFrame, refer: pandas.DataFrame) -> pandas.DataFrame:
+    CP_list = raw["CP"]
+    PN = raw["Publication Number"].tolist()
+    origin_PN = refer["Publication Number"]
+    for i in range(len(CP_list)):
+        tmp_0 = CP_list[i]
+        for j in range(len(tmp_0)):
+            if tmp_0[j] in PN:
+                continue
+            else:
+                if tmp_0[j] in origin_PN.tolist():
+                    # prevent duplication
+                    PN.append(tmp_0[j])
+                    rows_index = refer.loc[refer['Publication Number'] == tmp_0[j]]
+                    raw = raw.append(rows_index, ignore_index=True)
+    raw.index = range(len(raw))
+    PN = raw["Publication Number"]
+    CP_list = raw["CP"]
+    # remove self-citation
+    for i in range(len(PN)):
+        if type(CP_list[i]) == list and PN[i] in CP_list[i]:
+            CP_list[i].remove(PN[i])
+    raw.index = range(len(raw))
+    return raw
 
 
 main()
