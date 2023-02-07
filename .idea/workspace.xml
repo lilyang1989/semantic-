@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d80bfb7-eff5-43fd-bdf0-60483f09ebe8" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/group_classifcation" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Untitled.xlsx.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/final_result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/final_result.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network_constructor.py" beforeDir="false" afterPath="$PROJECT_DIR$/network_constructor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/path.png" beforeDir="false" afterPath="$PROJECT_DIR$/path.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/~$final_result.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +186,7 @@
       <workItem from="1673707509837" duration="23672000" />
       <workItem from="1674560487831" duration="1000" />
       <workItem from="1675098474468" duration="10850000" />
-      <workItem from="1675702583382" duration="3359000" />
+      <workItem from="1675702583382" duration="4063000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1673767343790</created>
@@ -214,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673783516169</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="增加了有向图">
+      <created>1675705988961</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675705988961</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +249,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="first commit" />
     <MESSAGE value="fix some small bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix some small bugs" />
+    <MESSAGE value="增加了有向图" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了有向图" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

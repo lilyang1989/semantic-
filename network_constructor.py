@@ -26,7 +26,7 @@ def main():
         for j in range(len(CP_list[i])):
             if PN[i] == CP_list[i][j]:
                 continue
-            G.add_edge(PN[i], CP_list[i][j])
+            G.add_edge(CP_list[i][j], PN[i])
 
     # find communities in the graph
     center_node = 0
