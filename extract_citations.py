@@ -2,26 +2,15 @@ import numpy as np
 import pandas
 import pandas as pd
 
+""""
+这个代码很💩山，别乱动哥们
+"""
+
 
 # CP columns means the patent is a citation of these patents
 def main():
-    data = pd.read_excel("./data2.xlsx")
-    # columns contain nan have quantity of 125
-    # print(data[data.isnull()].columns.values)
-    # print(len(data[data.isnull()].columns.values))
-    # delete columns contains nan
-    # data = data.dropna(axis=1)
-    # print(data.columns.values)
+    data = pd.read_excel("data/data.xlsx")
     result = data[["Publication Number", "Publication Date"]]
-    # print the quantity of nan of each column
-    # print(data_1.isna().sum())
-    # result
-    # Publication Number      0
-    # Backward Citations    144
-    # Forward Citations     260
-    # Publication Date        0
-    # dtype: int64
-    # add CP and label to columns
     result = result.reindex(columns=result.columns.tolist() + ["CP", "label"])
     result[['CP', 'label']] = result[['CP', 'label']].astype('object')
     # use as a referring
@@ -79,23 +68,8 @@ def main():
     # reindex
     result.index = range(len(result))
     result = result_fix(result, refer)
-    result.to_excel("./mid_result.xlsx")
+    result.to_excel("result/mid_result.xlsx")
     return result
-
-
-#     #<class 'pandas.core.frame.DataFrame'>
-# Int64Index: 57 entries, 4 to 287
-# Data columns (total 4 columns):
-#  #   Column              Non-Null Count  Dtype
-# ---  ------              --------------  -----
-#  0   Publication Number  57 non-null     object
-#  1   Publication Date    57 non-null     object
-#  2   CP                  57 non-null     object
-#  3   label               0 non-null      object
-# dtypes: object(4)
-# memory usage: 2.2+ KB
-# None
-#
 
 
 # invoke it a time while processing one patent

@@ -6,7 +6,7 @@ time = []
 
 
 def readFile():
-    xls_Data = xlrd.open_workbook('./data2.xlsx')
+    xls_Data = xlrd.open_workbook('data/data.xlsx')
     table = xls_Data.sheets()[0]  # we set the first sheet as a default sheet
     index = table.row_values(0, start_colx=0, end_colx=None)
     date_index = 0  # find out the index of url
@@ -23,55 +23,6 @@ def readFile():
         date.append(res)
     resp = process(date)
     return resp
-
-
-# def eSpace(url: str) -> str:
-#     req = "&date=(\d*)"
-#     try:
-#         time1 = re.findall(req, url)[0]
-#         res = [time1[0:4], time1[4:6], time1[6:8]]
-#         return res
-#
-#     except Exception as e:
-#         print(e)
-#         return "Not Found"
-
-
-# def apx(url0: str) -> list:
-#     req = "=DN/(\d*)"
-#     try:
-#         num = re.findall(req, url0)[0]
-#     except Exception as e:
-#         print(e)
-#         print(url0)
-#     url = "https://ppubs.uspto.gov/dirsearch-public/searches/generic"
-#
-#     payload = json.dumps({
-#         "cursorMarker": "*",
-#         "databaseFilters": [
-#             {
-#                 "databaseName": "*"
-#             }
-#         ],
-#         "fields": [
-#             "datePublished"
-#         ],
-#         "q": "(" + str(num) + ").pn.",
-#         "sort": "date_publ desc"
-#     })
-#     headers = {
-#         'authority': 'ppubs.uspto.gov',
-#         'accept': 'application/json',
-#         'content-type': 'application/json',
-#         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) '
-#                       'Chrome/108.0.0.0 Safari/537.36 '
-#     }
-#
-#     response = requests.request("POST", url, headers=headers, data=payload)
-#     text = response.text
-#     op = json.loads(text)
-#     time00 = str(op["docs"][0]["datePublished"])
-#     return time00.split("-")
 
 
 def process(raw: list) -> dict:
@@ -106,7 +57,7 @@ def write(data: dict):
                 month = str(i)
             worksheet.write(count_years, i, str(data[str(year)][month]))
         count_years = count_years + 1
-    workbook.save("./result.xls")
+    workbook.save("./result/count_result.xls")
 
 
-readFile()
+write(readFile())
