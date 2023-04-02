@@ -9,7 +9,7 @@ import pandas as pd
 
 # CP columns means the patent is a citation of these patents
 def main():
-    data = pd.read_excel("data/data.xlsx")
+    data = pd.read_excel("AR/AR_MID.xlsx")
     result = data[["Publication Number", "Publication Date"]]
     result = result.reindex(columns=result.columns.tolist() + ["CP", "label"])
     result[['CP', 'label']] = result[['CP', 'label']].astype('object')
@@ -53,8 +53,14 @@ def main():
         for j in range(len(after)):
             rows_index = result.loc[result['Publication Number'] == after[j]].index.values[0]
             rows_index = int(rows_index)
-            if pd.isnull(result.at[rows_index, 'CP'][0]):
-                result.at[rows_index, 'CP'] = pd.array([])
+            try:
+                if pd.isnull(result.at[rows_index, 'CP']).any():
+                    result.at[rows_index, 'CP'] = pd.array([])
+            except Exception as e:
+                print(e)
+                print(result.at[rows_index, 'CP'])
+                if pd.isnull(result.at[rows_index, 'CP']):
+                    result.at[rows_index, 'CP'] = pd.array([])
             result.at[rows_index, 'CP'] = list(set(list(result.loc[rows_index, "CP"]) + [after[j]]))
     CP_rows = result["CP"]
     # drop the nan CP
@@ -68,7 +74,7 @@ def main():
     # reindex
     result.index = range(len(result))
     result = result_fix(result, refer)
-    result.to_excel("result/mid_result.xlsx")
+    result.to_excel("AR/AR_mid_result.xlsx")
     return result
 
 
@@ -110,4 +116,5 @@ def result_fix(raw: pandas.DataFrame, refer: pandas.DataFrame) -> pandas.DataFra
     return raw
 
 
-main()
+print(main())
+print(1)

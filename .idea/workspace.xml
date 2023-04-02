@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d80bfb7-eff5-43fd-bdf0-60483f09ebe8" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/label.py" beforeDir="false" afterPath="$PROJECT_DIR$/label.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network_constructor.py" beforeDir="false" afterPath="$PROJECT_DIR$/network_constructor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/count_result.xls" beforeDir="false" afterPath="$PROJECT_DIR$/result/count_result.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/label_result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/result/label_result.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/mid_result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/result/mid_result.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,16 +65,19 @@
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2JdX24mUZSzmTpTSpu0y6r9vSK2" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/huagenda/PycharmProjects/IpcAnalyzer&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/huagenda/PycharmProjects/IpcAnalyzer/data/metaverse&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -89,11 +87,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/metaverse" />
+      <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/AR" />
+      <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
   <component name="RunManager">
@@ -202,7 +203,45 @@
       <workItem from="1678617861277" duration="609000" />
       <workItem from="1678618473743" duration="8337000" />
       <workItem from="1678725760925" duration="717000" />
-      <workItem from="1678726535187" duration="11881000" />
+      <workItem from="1678726535187" duration="14836000" />
+      <workItem from="1678950391953" duration="5090000" />
+      <workItem from="1678963032153" duration="297000" />
+      <workItem from="1678963331934" duration="126000" />
+      <workItem from="1678963460643" duration="2093000" />
+      <workItem from="1678965563565" duration="29000" />
+      <workItem from="1678965594621" duration="911000" />
+      <workItem from="1678966510062" duration="1657000" />
+      <workItem from="1678968173174" duration="326000" />
+      <workItem from="1678968507360" duration="7199000" />
+      <workItem from="1679074705543" duration="8056000" />
+      <workItem from="1679210555805" duration="509000" />
+      <workItem from="1679211145073" duration="15245000" />
+      <workItem from="1679504447928" duration="892000" />
+      <workItem from="1679505452760" duration="613000" />
+      <workItem from="1679506069921" duration="422000" />
+      <workItem from="1679506494792" duration="663000" />
+      <workItem from="1679507161744" duration="151000" />
+      <workItem from="1679507316015" duration="1243000" />
+      <workItem from="1679508565083" duration="136000" />
+      <workItem from="1679508702921" duration="11758000" />
+      <workItem from="1679578917834" duration="182000" />
+      <workItem from="1679579102220" duration="6653000" />
+      <workItem from="1679595261049" duration="120000" />
+      <workItem from="1679595398186" duration="56000" />
+      <workItem from="1679595512259" duration="8944000" />
+      <workItem from="1680411787889" duration="351000" />
+      <workItem from="1680412141923" duration="147000" />
+      <workItem from="1680412290572" duration="62000" />
+      <workItem from="1680412354862" duration="1571000" />
+      <workItem from="1680414056164" duration="608000" />
+      <workItem from="1680414668572" duration="463000" />
+      <workItem from="1680415134658" duration="13618000" />
+      <workItem from="1680443403725" duration="7000" />
+      <workItem from="1680443459276" duration="1083000" />
+      <workItem from="1680444547089" duration="1797000" />
+      <workItem from="1680454334370" duration="110000" />
+      <workItem from="1680454449493" duration="60000" />
+      <workItem from="1680454511641" duration="2680000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1673767343790</created>
@@ -246,7 +285,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678618762596</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="修复了些bug，整理了下代码">
+      <created>1678796964896</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678796964896</updated>
+    </task>
+    <task id="LOCAL-00008" summary="修复了些bug，整理了下代码">
+      <created>1680456882664</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680456882664</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +330,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
     <MESSAGE value="fix some small bugs" />
     <MESSAGE value="增加了有向图" />
@@ -288,6 +342,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/extract_citations.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -299,11 +360,15 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IpcAnalyzer$network_constructor.coverage" NAME="network_constructor 覆盖结果" MODIFIED="1678789598086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IpcAnalyzer$group_label.coverage" NAME="group_label 覆盖结果" MODIFIED="1680440341155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IpcAnalyzer$label.coverage" NAME="label 覆盖结果" MODIFIED="1678618451518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IpcAnalyzer$pictrue.coverage" NAME="pictrue 覆盖结果" MODIFIED="1678617464101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IpcAnalyzer$cata_picture.coverage" NAME="cata_picture 覆盖结果" MODIFIED="1679595027300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IpcAnalyzer$.coverage" NAME=" 覆盖结果" MODIFIED="1673449484140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IpcAnalyzer$data_cleaning.coverage" NAME="data_cleaning 覆盖结果" MODIFIED="1673509738516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/IpcAnalyzer$extract_citations.coverage" NAME="extract_citations 覆盖结果" MODIFIED="1678786574380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/IpcAnalyzer$main.coverage" NAME="main 覆盖结果" MODIFIED="1678727238694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IpcAnalyzer$extract_citations.coverage" NAME="extract_citations 覆盖结果" MODIFIED="1679506658798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IpcAnalyzer$main.coverage" NAME="main 覆盖结果" MODIFIED="1680444388631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IpcAnalyzer$giran_newman.coverage" NAME="giran_newman 覆盖结果" MODIFIED="1679221002949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/result" />
+    <SUITE FILE_PATH="coverage/IpcAnalyzer$LDAcluster.coverage" NAME="LDAcluster 覆盖结果" MODIFIED="1680454205645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LDA_ALL" />
   </component>
 </project>

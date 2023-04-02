@@ -1,8 +1,7 @@
 import matplotlib.pyplot as plt
 import networkx as ntx
 import networkx as nx
-
-import label
+import pandas as pd
 
 
 def main():
@@ -11,7 +10,7 @@ def main():
         'figure.figsize': (30, 30)
 
     })
-    data = label.label()
+    data = pd.read_excel('label_result/AR.xlsx')
     CP = data["CP"].values
     PN = data["Publication Number"]
     CP_list = []
@@ -41,13 +40,13 @@ def main():
     # 这一步是提取网络中包含最大度的弱连通网络
     # get the biggest degree node from the graph
     # 找到出度最大的节点
-    max_out_degree_nodes = get_high_degree_nodes(G, 6)
-    path = extract_main_path(G.copy(), max_out_degree_nodes[2], data)
+    max_out_degree_nodes = get_high_degree_nodes(G, 1)
+    path = extract_main_path(G.copy(), max_out_degree_nodes[0], data)
     # depict  the path use the matplotlib
-    visualize_main_path(G, path, data, max_out_degree_nodes[2])
+    visualize_main_path(path, data, max_out_degree_nodes[0])
 
 
-def label_mark(G, data, max_node, paths) -> list:
+def label_mark(G, data, max_node) -> list:
     result = []
     for node in G:
         tmp = data[data["Publication Number"] == str(node)]
@@ -92,16 +91,15 @@ def find_nodes_with_min_degree(graph):
 
 # label为1则应该是起始点，label为2则应该是结束点
 def extract_starts_ends(all: list, data) -> tuple:
-    starts = []
     ends = []
     for node in all:
         tmp = data[data["Publication Number"] == str(node)]
         label_tmp = tmp.values[0][2]
         if str(label_tmp) == "1":
-            starts.append(node)
+            continue
         else:
             ends.append(node)
-    return starts, ends
+    return ends
 
 
 def get_high_degree_nodes(G, k):
@@ -137,8 +135,9 @@ def extract_main_path(G, max_out_degree_node, data):
     #
     # 第一步是确定start的node，一般来说是时间较早的
     #
-    starts_ends = find_nodes_with_min_degree(b_subgraph.copy())
-    starts, ends = extract_starts_ends(starts_ends, data)
+    all = find_nodes_with_min_degree(b_subgraph.copy())
+    ends = extract_starts_ends(all, data)
+    starts = find_start_nodes(b_subgraph, max_out_degree_node)
     mid = max_out_degree_node
     print(starts, ends)
     paths_back = []
@@ -152,7 +151,7 @@ def extract_main_path(G, max_out_degree_node, data):
     for start in starts:
         try:
             path = nx.dijkstra_path(G.copy(), start, mid)
-            paths_back.append(path)
+            paths_forward.append(path)
         except Exception as e:
             print(e)
     print(f"向前路线有{len(paths_forward)},向后有{len(paths_back)}")
@@ -176,33 +175,46 @@ def extract_main_path(G, max_out_degree_node, data):
     Final_path = max_F_path + max_B_path
     print(Final_path)
     return Final_path
-    # pos = ntx.spiral_layout(b_subgraph)
-    # ntx.draw(b_subgraph, pos=pos, node_color=label_mark(b_subgraph, data, max_out_degree_node), with_labels=True)
-    # edge_labels = ntx.get_edge_attributes(G, 'weight')
-    # # ntx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
-    #
-    # plt.show()
-    # plt.savefig("path.png")
 
 
-def visualize_main_path(G, path, data, max_out_degree_node):
+def visualize_main_path(path, data, max_out_degree_node):
+    edgeList = [(path[i], path[i + 1]) for i in range(len(path) - 1)]
+    G = ntx.DiGraph()
+    G.add_edges_from(edgeList)
     pos = ntx.spiral_layout(G)
-    labels = label_mark(G, data, max_out_degree_node, path
-                        )
-    ntx.draw(G, pos=pos, node_color=labels, with_labels=True)
-    nx.draw_networkx_edges(G, pos, edgelist=[(path[i], path[i + 1]) for i in range(len(path) - 1)], width=10, alpha=0.5,
-                           edge_color='yellow')
+    ntx.draw(G, pos=pos, node_color=label_mark(G, data, max_out_degree_node), with_labels=True)
     plt.show()
-    plt.savefig("path.png")
-    # pos = nx.spring_layout(G)
-    # node_color = label_mark(G, data, path[len(path) // 2])
-    # edge_labels = nx.get_edge_attributes(G, 'weight')
-    # nx.draw_networkx_nodes(G, pos, node_size=50, node_color=node_color)
-    # nx.draw_networkx_labels(G, pos, font_size=20)
-    # nx.draw_networkx_edges(G, pos, edgelist=[(path[i], path[i + 1]) for i in range(len(path) - 1)], width=5, alpha=0.5,
-    #                        edge_color='red')
-    # nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=10, label_pos=0.2)
-    # plt.show()
+    plt.savefig("images/path.png")
+
+
+def find_start_nodes(graph, node):
+    """
+    寻找给定节点所在链条的起始节点列表
+    :param graph: 有向网络，使用 NetworkX 库表示
+    :param node: 给定节点
+    :return: 起始节点列表
+    """
+    start_nodes = []  # 起始节点列表
+    visited = set()  # 记录已经访问的节点
+    visited.add(node)
+
+    # 递归查找起始节点
+    def dfs(curr_node):
+        # 如果当前节点已经访问过，直接返回
+        if curr_node in visited:
+            return
+        visited.add(curr_node)
+
+        # 如果当前节点没有入边，将其添加到起始节点列表中
+        if graph.in_degree(curr_node) == 0:
+            start_nodes.append(curr_node)
+
+        # 对于所有的入边的起点，继续执行dfs
+        for start_node in graph.predecessors(curr_node):
+            dfs(start_node)
+
+    dfs(node)
+    return start_nodes
 
 
 if __name__ == '__main__':

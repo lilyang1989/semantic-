@@ -1,3 +1,4 @@
+import pandas
 import xlrd
 import xlwt
 from tqdm import trange
@@ -5,8 +6,21 @@ from tqdm import trange
 time = []
 
 
+# Abstract
+def get_Abstract():
+    data = pandas.read_csv('AR/AR.csv', encoding='latin1', error_bad_lines=False)
+    result = data[["Publication Number", "Abstract"]]
+    result.to_excel('AR/abstract.xlsx', encoding='utf-8')
+
+
+def preprocess():
+    data = pandas.read_csv('AR/AR.csv', encoding='latin1', error_bad_lines=False)
+    result = data[["Publication Number", "Publication Date", "Forward Citations", "Backward Citations"]]
+    result.to_excel("AR/AR_MID.xlsx")
+
+
 def readFile():
-    xls_Data = xlrd.open_workbook('data/data.xlsx')
+    xls_Data = xlrd.open_workbook('AR/AR_MID.xlsx')
     table = xls_Data.sheets()[0]  # we set the first sheet as a default sheet
     index = table.row_values(0, start_colx=0, end_colx=None)
     date_index = 0  # find out the index of url
@@ -60,4 +74,4 @@ def write(data: dict):
     workbook.save("./result/count_result.xls")
 
 
-write(readFile())
+get_Abstract()
